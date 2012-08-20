@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>HTML5stagram</title>
+<title>HTML5Hipstr™</title>
 <link rel="stylesheet" href="lib/vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="app.css">
 
@@ -14,12 +14,29 @@
 
 
 <section id="Main">
+
   <canvas id="Dropzone"></canvas>
+
   <p>
-    <input id="Save" class="btn btn-primary disabled" type="button" value="Speichern">
-    <input id="SaveNew" class="btn btn-primary disabled" type="button" value="Neu speichern">
-    <input id="Delete" class="btn btn-danger disabled" type="button" value="Löschen">
+    <label>
+      Kontrast:<br>
+      <input disabled id="Contrast" type="range" min="0" max="100" value="50" data-default="50">
+    </label>
+    <label>
+      Sättigung:<br>
+      <input disabled id="Saturation" type="range" min="0" max="100" value="50" data-default="50">
+    </label>
+    <label>
+      Sepia:<br>
+      <input disabled id="Sepia" type="range" min="0" max="100" value="0" data-default="0">
+    </label>
   </p>
+
+  <p>
+    <input disabled id="Save" class="btn btn-primary" type="button" value="Speichern">
+    <input disabled id="Delete" class="btn btn-danger" type="button" value="Löschen">
+  </p>
+
 </section>
 
 
