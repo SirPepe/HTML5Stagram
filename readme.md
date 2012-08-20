@@ -9,3 +9,11 @@ Agenda
   * HTML5 Drag & Drop und File API
   * Bildmanipulation mit dem Canvas-Element
   * Spontane Weiterentwicklung nach Wunsch
+
+Weiterentwicklungs-Perspektiven
+-------------------------------
+
+  * Erstellte Bilder speichern
+  * Paint-Funktionen
+  * Opera-Kompatibilität
+  * Photo-Booth-Funktionalität (Webcam)

@@ -14,16 +14,19 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
   // Drops auf #Dropzone registrieren
   drop('#Dropzone', function(evt){
 
-    // Erster Eintrag in der Dateiliste = unser Bild
-    var file = evt.dataTransfer.files[0];
+    // Erster Eintrag in der Dateiliste = unser Bild. IE kann das leider nicht
+    if(evt.dataTransfer.files){
+      var file = evt.dataTransfer.files[0];
 
-    // Datei als Base64-String einlesen. Wenn die Datei eingelesen ist, Bild
-    // auf die Canvas zeichnen
-    read.asDataURL(file, function(content){
-      canvas.drawURL(content, function(){
-        $('input').removeAttr('disabled'); // Inputs aktivieren
+      // Datei als Base64-String einlesen. Wenn die Datei eingelesen ist, Bild
+      // auf die Canvas zeichnen
+      read.asDataURL(file, function(content){
+        canvas.drawURL(content, function(){
+          $('input').removeAttr('disabled'); // Inputs aktivieren
+        });
       });
-    });
+
+    }
 
   });
 
