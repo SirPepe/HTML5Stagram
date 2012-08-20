@@ -1,65 +1,34 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>HTML5stagram</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="lib/vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="app.css">
 
 
 <div class="container">
 
 
-<header class="row">
-    <hgroup class="span12">
-        <h1>HTML5stagram</h1>
-        <h2>Version 2.0 Beta</h2>
-    </hgroup>
+<header>
+  <h1>HTML5Hipstr™</h2>
 </header>
 
 
-<div class="navbar">
-    <div class="navbar-inner">
-        <ul class="nav">
-            <li class="active"><a href="#">Home</a>
-            <li><a href="#">Library</a>
-        </ul>
-    </div>
-</div>
+<section id="Main">
+  <canvas id="Dropzone"></canvas>
+  <p>
+    <input id="Save" class="btn btn-primary disabled" type="button" value="Speichern">
+    <input id="SaveNew" class="btn btn-primary disabled" type="button" value="Neu speichern">
+    <input id="Delete" class="btn btn-danger disabled" type="button" value="Löschen">
+  </p>
+</section>
 
 
-<div class="row">
-
-    <section id="Main" class="span8">
-        <canvas id="Dropzone"></canvas>
-        <p>
-            <input id="Save" class="btn btn-primary disabled" type="button" value="Speichern">
-            <input id="SaveNew" class="btn btn-primary disabled" type="button" value="Neu speichern">
-            <input id="Delete" class="btn btn-danger disabled" type="button" value="Löschen">
-        </p>
-    </section>
-
-    <section class="span4">
-        <ul class="nav nav-list">
-            <li class="nav-header">Effekte
-            <li><a href="#"><i class="icon-adjust"></i> Helligkeit</a>
-            <li><a href="#"><i class="icon-tint"></i> Sättigung</a>
-            <li><a href="#"><i class="icon-camera"></i> Vintage</a>
-        </ul>
-    </section>
-
-
-</div> <!-- Ende .row -->
-
-
-<footer class="row footer">
-    <div class="span12">
-        &copy; 2012 HTML5stagram
-    </div>
+<footer>
+  &copy; 2012 HTML5Hipstr™
 </footer>
 
 
 </div> <!-- Ende .container -->
 
 
-<script data-main="app.js" src="lib/require.js"></script>
+<script data-main="app.js" src="lib/vendor/require.js"></script>

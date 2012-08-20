@@ -1,18 +1,10 @@
-var pageModel, imageModel;
+require(['lib/vendor/jquery'], function(){
 
-(function(){
 
-  var deps = [
-    'app/drop',
-    'app/read',
-    'app/canvas',
-    'lib/jquery',
-    'lib/angular'
-  ];
 
-  require(deps, function(drop, read, canvas){
+});
 
-    drop('#Dropzone', function(evt){
+    /*drop('#Dropzone', function(evt){
 
       // Erster Eintrag in der Dateiliste = unser Bild
       var file = evt.dataTransfer.files[0];
@@ -24,8 +16,4 @@ var pageModel, imageModel;
         canvas.drawURL(content, function(){});
       });
 
-    });
-
-  });
-
-})();
+    });*/
