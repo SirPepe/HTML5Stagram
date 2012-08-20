@@ -1,6 +1,8 @@
+/*jshint browser:false */
 /*global jQuery:false */
 
-require(['lib/drop', 'lib/read', 'lib/canvas'], function(drop, read, canvas){
+require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
+  function(drop, read, canvas){
 
   // Douglas-Crockford-Mode aktivieren
   'use strict';
@@ -31,13 +33,43 @@ require(['lib/drop', 'lib/read', 'lib/canvas'], function(drop, read, canvas){
   $('#Delete').click(function(){
     if(!this.disabled){
       canvas.reset();
-      // Alle Inputs deaktivieren...
       $('input').attr('disabled', 'disabled');
-      // ... und auf ihre Standardwerte zurücksetzen
-      $('#Contrast, #Saturation, #Sepia').each(function(index, input){
-        $(input).val($(input).data('default'));
+      $('#Contrast, #Saturation, #Sepia').each(function(index, el){
+        var input = $(el);
+        input.val(input.data('default'));
       });
     }
+  });
+
+
+  // Beim Klick auf "Speichern" die Bilddaten exportieren
+  $('#Save').click(function(){
+    if(!this.disabled){
+      var url = canvas.el().toDataURL();
+      location.href = url;
+    }
+  });
+
+  // Caman-Wrapper
+  var filter = function(filter, amount){
+    Caman('#Dropzone', function(){
+      this[filter](amount).render();
+    });
+  };
+
+
+  // Bildmanipulations-Bindings
+  $('#Contrast').change(function(){
+    var amount = $(this).val() / 5;
+    filter('contrast', amount);
+  });
+  $('#Saturation').change(function(){
+    var amount = $(this).val();
+    filter('saturation', amount);
+  });
+  $('#Sepia').change(function(){
+    var amount = $(this).val();
+    filter('sepia', amount);
   });
 
 

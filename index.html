@@ -15,27 +15,31 @@
 
 <section id="Main">
 
-  <canvas id="Dropzone"></canvas>
+<canvas id="Dropzone"></canvas>
 
-  <p>
-    <label>
-      Kontrast:<br>
-      <input disabled id="Contrast" type="range" min="0" max="100" value="50" data-default="50">
-    </label>
-    <label>
-      Sättigung:<br>
-      <input disabled id="Saturation" type="range" min="0" max="100" value="50" data-default="50">
-    </label>
-    <label>
-      Sepia:<br>
-      <input disabled id="Sepia" type="range" min="0" max="100" value="0" data-default="0">
-    </label>
-  </p>
+<p>
 
-  <p>
-    <input disabled id="Save" class="btn btn-primary" type="button" value="Speichern">
-    <input disabled id="Delete" class="btn btn-danger" type="button" value="Löschen">
-  </p>
+  <label>
+    Kontrast:<br>
+    <input disabled id="Contrast" type="range" min="-100" max="100" value="0" data-default="0">
+  </label>
+
+  <label>
+    Sättigung:<br>
+    <input disabled id="Saturation" type="range" min="-100" max="100" value="0" data-default="0">
+  </label>
+
+  <label>
+    Sepia:<br>
+    <input disabled id="Sepia" type="range" min="-100" max="100" value="0" data-default="0">
+  </label>
+
+</p>
+
+<p>
+  <input disabled id="Save" class="btn btn-primary" type="button" value="Speichern">
+  <input disabled id="Delete" class="btn btn-danger" type="button" value="Löschen">
+</p>
 
 </section>
 
