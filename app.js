@@ -61,7 +61,7 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
   };
 
 
-  // Bildmanipulations-Bindings
+  // UI-Bindings
   $('#Contrast').change(function(){
     var amount = $(this).val() / 5;
     filter('contrast', amount);
