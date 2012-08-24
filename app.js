@@ -21,7 +21,7 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
       // Datei als Base64-String einlesen. Wenn die Datei eingelesen ist, Bild
       // auf die Canvas zeichnen
       read.asDataURL(file, function(content){
-        canvas.drawURL(content, function(){
+        canvas.drawUrl(content, function(){
           $('input').removeAttr('disabled'); // Inputs aktivieren
         });
       });

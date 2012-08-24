@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Tests für drop.js</title>
+<link rel="stylesheet" href="../qunit.css">
+
+
+<div id="qunit"></div>
+
+
+<script src="../qunit.js"></script>
+<script>
+var require = {
+  paths: {
+    'lib/drop': '../../lib/drop',
+    'lib/vendor/jquery': '../../lib/vendor/jquery'
+  }
+}
+</script>
+<script src="../../lib/vendor/require.js" data-main="dropTest.js"></script>
