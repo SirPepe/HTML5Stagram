@@ -37,9 +37,8 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
     if(!this.disabled){
       canvas.reset();
       $('input').attr('disabled', 'disabled');
-      $('#Contrast, #Saturation, #Sepia').each(function(index, el){
-        var input = $(el);
-        input.val(input.data('default'));
+      $('#Contrast, #Saturation, #Sepia').val(function(){
+        return $(this).data('default');
       });
     }
   });
