@@ -52,6 +52,7 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
     }
   });
 
+
   // Caman-Wrapper
   var filter = function(filter, amount){
     Caman('#Dropzone', function(){
