@@ -57,9 +57,10 @@ require([
     $('#Record').attr('disabled', false).click(function(){
       // Aufnahme starten
       if(!photo.isRecording){
-        photo.startRecording();
-        $('#Record').attr('value', 'Foto schießen');
-        disableControls();
+        photo.startRecording(function(){
+          $('#Record').attr('value', 'Foto schießen');
+          disableControls();
+        });
       }
       // Aufnahme stoppen
       else {
