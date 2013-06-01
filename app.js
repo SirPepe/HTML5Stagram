@@ -1,11 +1,31 @@
 /*jshint browser:false */
 /*global jQuery:false */
 
-require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
-  function(drop, read, canvas){
+require([
+    'lib/drop',
+    'lib/read',
+    'lib/canvas',
+    'lib/photo',
+    'lib/vendor/caman.min'
+  ],
+  function(drop, read, canvas, photo){
+
 
   // Douglas-Crockford-Mode aktivieren
   'use strict';
+
+
+  // Hilfsfunktionen zum (de)aktivieren der Steuerungselemente
+  function enableControls(){
+    $('input[type=number], #Save, #Delete').attr('disabled', false);
+  }
+  function disableControls(){
+    $('input[type=number], #Save, #Delete').attr('disabled', true);
+    $('input[type=number]').val(function(){
+      return $(this).data('default');
+    });
+  }
+
 
   // Canvas initalisieren
   canvas.init('#Dropzone');
@@ -14,7 +34,7 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
   // Drops auf #Dropzone registrieren
   drop('#Dropzone', function(evt){
 
-    // Erster Eintrag in der Dateiliste = unser Bild. IE kann das leider nicht
+    // Erster Eintrag in der Dateiliste = unser Bild
     if(evt.dataTransfer.files){
       var file = evt.dataTransfer.files[0];
 
@@ -22,7 +42,7 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
       // auf die Canvas zeichnen
       read.asDataURL(file, function(content){
         canvas.drawUrl(content, function(){
-          $('input').removeAttr('disabled'); // Inputs aktivieren
+          enableControls();
         });
       });
 
@@ -31,15 +51,31 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
   });
 
 
-  // Beim Klick auf "Löschen" die Canvas putzen und die Controls
-  // deaktivieren/resetten
+  // Foto-Funktion initialisieren, wenn der Browser Unterstützung anbietet
+  if(photo.supportsRecording){
+    photo.init('#Dropzone');
+    $('#Record').attr('disabled', false).click(function(){
+      // Aufnahme starten
+      if(!photo.isRecording){
+        photo.startRecording();
+        $('#Record').attr('value', 'Foto schießen');
+        disableControls();
+      }
+      // Aufnahme stoppen
+      else {
+        photo.stopRecording();
+        $('#Record').attr('value', 'Webcam aufnehmen');
+        enableControls();
+      }
+    });
+  }
+
+
+  // Beim Klick auf "Löschen" die Canvas putzen und die Controls deaktivieren
   $('#Delete').click(function(){
     if(!this.disabled){
       canvas.reset();
-      $('input').attr('disabled', 'disabled');
-      $('#Contrast, #Saturation, #Sepia').val(function(){
-        return $(this).data('default');
-      });
+      disableControls();
     }
   });
 
@@ -61,7 +97,7 @@ require(['lib/drop', 'lib/read', 'lib/canvas', 'lib/vendor/caman.min'],
   };
 
 
-  // UI-Bindings
+  // UI-Bindings für Caman
   $('#Contrast').change(function(){
     var amount = $(this).val() / 5;
     filter('contrast', amount);
