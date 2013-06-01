@@ -3,6 +3,7 @@ define(['lib/read'], function(read){
   test('API-Vollständigkeit', function(){
     equal(typeof read, 'object', 'read-Modul übergibt Objekt');
     equal(typeof read.asDataURL, 'function', 'read.asDataURL ist eine Funktion');
+    equal(read.asDataURL.length, 2, 'read.asDataURL akzeptiert zwei Parameter');
   });
 
   asyncTest('Einlese-Funktion', function(){

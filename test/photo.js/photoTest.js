@@ -17,6 +17,7 @@ define(['lib/photo'], function(photo){
               navigator.msGetUserMedia;
     var supportsTest = (typeof navigator.getUserMedia !== 'undefined');
     equal(photo.supportsRecording, supportsTest, 'photo.supportsRecording gibt Browserunterstützung an');
+    equal(photo.supportsRecording, true, 'Browserunterstützung für Tests vorhanden');
   });
 
 });

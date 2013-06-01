@@ -4,6 +4,7 @@ define(['lib/drop'], function(drop){
 
   test('API-Vollständigkeit', function(){
     equal(typeof drop, 'function', 'drop-Modul übergibt Funktion');
+    equal(drop.length, 2, 'drop-Funktion akzeptiert zwei Parameter');
   });
 
   asyncTest('Modul-Funktionalität', function(){

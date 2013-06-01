@@ -9,9 +9,13 @@ define(['lib/canvas'], function(canvas){
   test('API-Vollständigkeit', function(){
     equal(typeof canvas, 'object', 'canvas-Modul übergibt Objekt');
     equal(typeof canvas.init, 'function', 'canvas.init ist eine Funktion');
+    equal(canvas.init.length, 1, 'canvas.init akzeptiert einen Parameter');
     equal(typeof canvas.el, 'function', 'canvas.el ist eine Funktion');
+    equal(canvas.el.length, 0, 'canvas.el akzeptiert null Parameter');
     equal(typeof canvas.reset, 'function', 'canvas.reset ist eine Funktion');
-    equal(typeof canvas.init, 'function', 'canvas.drawUrl ist eine Funktion');
+    equal(canvas.reset.length, 0, 'canvas.reset akzeptiert null Parameter');
+    equal(typeof canvas.drawUrl, 'function', 'canvas.drawUrl ist eine Funktion');
+    equal(canvas.drawUrl.length, 2, 'canvas.reset akzeptiert zwei Parameter');
   });
 
   test('el()', function(){
