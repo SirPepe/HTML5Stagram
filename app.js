@@ -6,7 +6,8 @@ require([
     'lib/read',
     'lib/canvas',
     'lib/photo',
-    'lib/vendor/caman.min'
+    'lib/vendor/caman.min',
+    'lib/vendor/hacks'
   ],
   function(drop, read, canvas, photo){
 
