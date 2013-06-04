@@ -8,12 +8,19 @@
 
 <canvas id="Testcanvas" height="512" width="512"></canvas>
 
+
+<script src="../../lib/vendor/hacks.js"></script>
 <script src="../qunit.js"></script>
 <script>
 var require = {
   paths: {
     'lib/canvas': '../../lib/canvas',
     'lib/vendor/jquery': '../../lib/vendor/jquery'
+  },
+  shim: {
+    'lib/vendor/jquery': {
+      exports: '$'
+    }
   }
 }
 </script>

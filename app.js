@@ -2,14 +2,14 @@
 /*global jQuery:false */
 
 require([
+    'lib/vendor/jquery',
     'lib/drop',
     'lib/read',
     'lib/canvas',
     'lib/photo',
-    'lib/vendor/caman.min',
-    'lib/vendor/hacks'
+    'lib/vendor/caman.min'
   ],
-  function(drop, read, canvas, photo){
+  function($, drop, read, canvas, photo){
 
 
   // Douglas-Crockford-Mode aktivieren
@@ -85,7 +85,7 @@ require([
   // Beim Klick auf "Speichern" die Bilddaten exportieren
   $('#Save').click(function(){
     if(!this.disabled){
-      var url = canvas.el().toDataURL();
+      var url = $('canvas')[0].toDataURL();
       location.href = url;
     }
   });

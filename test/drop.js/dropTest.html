@@ -21,12 +21,18 @@
 <br>den Test zu beenden!</div>
 
 
+<script src="../../lib/vendor/hacks.js"></script>
 <script src="../qunit.js"></script>
 <script>
 var require = {
   paths: {
     'lib/drop': '../../lib/drop',
     'lib/vendor/jquery': '../../lib/vendor/jquery'
+  },
+  shim: {
+    'lib/vendor/jquery': {
+      exports: '$'
+    }
   }
 }
 </script>

@@ -25,7 +25,7 @@ define(['lib/photo'], function(photo){
   });
 
   test('drawToCanvas', function(){
-
+    console.log(photo)
   });
 
   asyncTest('startRecording', function(){

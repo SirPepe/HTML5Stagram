@@ -10,12 +10,18 @@
 <canvas height="200" width="200" style="border: 1px solid black"></canvas>
 
 
+<script src="../../lib/vendor/hacks.js"></script>
 <script src="../qunit.js"></script>
 <script>
 var require = {
   paths: {
     'lib/photo': '../../lib/photo',
     'lib/vendor/jquery': '../../lib/vendor/jquery'
+  },
+  shim: {
+    'lib/vendor/jquery': {
+      exports: '$'
+    }
   }
 }
 </script>

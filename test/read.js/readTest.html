@@ -15,12 +15,18 @@
 </p>
 
 
+<script src="../../lib/vendor/hacks.js"></script>
 <script src="../qunit.js"></script>
 <script>
 var require = {
   paths: {
     'lib/read': '../../lib/read',
     'lib/vendor/jquery': '../../lib/vendor/jquery'
+  },
+  shim: {
+    'lib/vendor/jquery': {
+      exports: '$'
+    }
   }
 }
 </script>
