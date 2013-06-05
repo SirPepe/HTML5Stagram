@@ -7,13 +7,17 @@ require([
     'lib/read',
     'lib/canvas',
     'lib/photo',
-    'lib/vendor/caman.min'
+    'lib/vendor/filtr'
   ],
-  function($, drop, read, canvas, photo){
+  function($, drop, read, canvas, photo, filtr){
 
 
   // Douglas-Crockford-Mode aktivieren
   'use strict';
+
+
+  // Projektweite Filter-Variable
+  var filter;
 
 
   // Hilfsfunktionen zum (de)aktivieren der Steuerungselemente
@@ -43,7 +47,9 @@ require([
       // auf die Canvas zeichnen
       read.asDataURL(file, function(content){
         canvas.drawUrl(content, function(){
+          // Steuerungselemente aktivieren, Filtr (re-)initialisieren
           enableControls();
+          filter = filtr('#Dropzone');
         });
       });
 
@@ -63,11 +69,13 @@ require([
           disableControls();
         });
       }
-      // Aufnahme stoppen
+      // Aufnahme stoppen, Steuerungselemente aktivieren,
+      // Filtr (re-)initialisieren
       else {
         photo.stopRecording();
         $('#Record').attr('value', 'Webcam aufnehmen');
         enableControls();
+        filter = filtr('#Dropzone');
       }
     });
   }
@@ -91,26 +99,17 @@ require([
   });
 
 
-  // Caman-Wrapper
-  var filter = function(filter, amount){
-    Caman('#Dropzone', function(){
-      this[filter](amount).render();
-    });
-  };
-
-
-  // UI-Bindings für Caman
-  $('#Contrast').change(function(){
-    var amount = $(this).val() / 5;
-    filter('contrast', amount);
-  });
-  $('#Saturation').change(function(){
-    var amount = $(this).val();
-    filter('saturation', amount);
-  });
-  $('#Sepia').change(function(){
-    var amount = $(this).val();
-    filter('sepia', amount);
+  // Effekte anwenden
+  $('#Contrast, #Saturation, #Sepia').on('change keyup', function(){
+    var amountContrast = $('#Contrast').val();
+    var amountSaturation = $('#Saturation').val();
+    var amountSepia = $('#Sepia').val();
+    filter
+      .revertSource()
+      .contrast(amountContrast)
+      .saturation(amountSaturation)
+      .sepia(amountSepia)
+      .render();
   });
 
 
