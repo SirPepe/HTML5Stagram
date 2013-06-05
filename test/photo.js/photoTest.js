@@ -39,9 +39,9 @@ define(['lib/photo'], function(photo){
     photo.startRecording(function(){
       ok(true, 'Callback von photo.startRecording() wird ausgeführt');
       ok(photo.isRecording, 'photo.isRecording ist nach photo.startRecording() true');
-      equal(photo.getVideo().paused, false, 'Video wird nach photo.startRecording() abgespielt');
       equal(photo.getVideo().videoWidth, photo.getCanvas().width, 'Canvas-Breite === Stream-Breite');
       equal(photo.getVideo().videoHeight, photo.getCanvas().height, 'Canvas-Höhe === Stream-Höhe');
+      equal(photo.getVideo().paused, false, 'Video wird nach photo.startRecording() abgespielt');
       start();
       setTimeout(function(){
         photo.stopRecording();
