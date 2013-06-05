@@ -19,3 +19,9 @@ canvas {
 canvas.active {
   border-color: green;
 }
+
+
+/* Für alle ollen Browser */
+main {
+  display: block;
+}
