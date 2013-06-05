@@ -45,7 +45,7 @@ require([
 
       // Datei als Base64-String einlesen. Wenn die Datei eingelesen ist, Bild
       // auf die Canvas zeichnen
-      read.asDataURL(file, function(content){
+      read.asDataUrl(file, function(content){
         canvas.drawUrl(content, function(){
           // Steuerungselemente aktivieren, Filtr (re-)initialisieren
           enableControls();
