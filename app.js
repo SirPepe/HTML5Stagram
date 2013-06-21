@@ -16,20 +16,20 @@ require([
   'use strict';
 
 
-  // Projektweite Filter-Variable
-  var filter;
-
-
   // Hilfsfunktionen zum (de)aktivieren der Steuerungselemente
   function enableControls(){
-    $('input[type=number], #Save, #Delete').attr('disabled', false);
+    $('[type=number], #Save, #Delete').attr('disabled', false);
   }
   function disableControls(){
-    $('input[type=number], #Save, #Delete').attr('disabled', true);
-    $('input[type=number]').val(function(){
+    $('[type=number], #Save, #Delete').attr('disabled', true);
+    $('[type=number]').val(function(){
       return $(this).data('default');
     });
   }
+
+
+  // Projektweite Filter-Variable
+  var filter;
 
 
   // Canvas initalisieren
@@ -47,7 +47,6 @@ require([
       // auf die Canvas zeichnen
       read.asDataUrl(file, function(content){
         canvas.drawUrl(content, function(){
-          // Steuerungselemente aktivieren, Filtr (re-)initialisieren
           enableControls();
           filter = filtr('#Dropzone');
         });
@@ -100,7 +99,7 @@ require([
 
 
   // Effekte anwenden
-  $('#Contrast, #Saturation, #Sepia').on('change keyup', function(){
+  $('[type=number]').on('change keyup', function(){
     var amountContrast = $('#Contrast').val();
     var amountSaturation = $('#Saturation').val();
     var amountSepia = $('#Sepia').val();
