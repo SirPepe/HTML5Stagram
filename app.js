@@ -28,12 +28,12 @@ require([
   }
 
 
-  // Projektweite Filter-Variable
-  var filter;
-
-
   // Canvas initalisieren
   canvas.init('#Dropzone');
+
+
+  // Filtr initialisieren
+  var filter = filtr('#Dropzone');
 
 
   // Drops auf #Dropzone registrieren
@@ -48,7 +48,7 @@ require([
       read.asDataUrl(file, function(content){
         canvas.drawUrl(content, function(){
           enableControls();
-          filter = filtr('#Dropzone');
+          filter.updateSource();
         });
       });
 
@@ -58,6 +58,7 @@ require([
 
 
   // Foto-Funktion initialisieren, wenn der Browser Unterstützung anbietet
+  console.log(photo.supportsRecording);
   if(photo.supportsRecording){
     photo.init('#Dropzone');
     $('#Record').attr('disabled', false).click(function(){
@@ -74,7 +75,7 @@ require([
         photo.stopRecording();
         $('#Record').attr('value', 'Webcam aufnehmen');
         enableControls();
-        filter = filtr('#Dropzone');
+        filter.updateSource();
       }
     });
   }
