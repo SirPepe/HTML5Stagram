@@ -33,4 +33,5 @@ Weiterentwicklungs-Perspektiven
 
  * Erstellte Bilder in lokaler DB speichern
  * Paint-Funktionen
+ * Support für Opera und alte Browser
  * Weitere Vorschläge?
