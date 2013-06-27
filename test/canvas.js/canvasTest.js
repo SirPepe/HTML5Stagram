@@ -13,7 +13,7 @@ define(['lib/canvas'], function(canvas){
     equal(typeof canvas.reset, 'function', 'canvas.reset ist eine Funktion');
     equal(canvas.reset.length, 0, 'canvas.reset akzeptiert null Parameter');
     equal(typeof canvas.drawUrl, 'function', 'canvas.drawUrl ist eine Funktion');
-    equal(canvas.drawUrl.length, 2, 'canvas.reset akzeptiert zwei Parameter');
+    equal(canvas.drawUrl.length, 2, 'canvas.drawUrl akzeptiert zwei Parameter');
   });
 
   test('reset()', function(){

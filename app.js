@@ -58,7 +58,6 @@ require([
 
 
   // Foto-Funktion initialisieren, wenn der Browser Unterstützung anbietet
-  console.log(photo.supportsRecording);
   if(photo.supportsRecording){
     photo.init('#Dropzone');
     $('#Record').attr('disabled', false).click(function(){
